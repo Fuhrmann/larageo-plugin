@@ -23,10 +23,12 @@ class LarageoPlugin {
         $url = str_replace('{IP}', $ip, $this->api_adress);
         $subnet = substr($ip, 0, strrpos ($ip, '.'));
 
+        $me = $this;
+
         // Use the IP info stored in cache or store it
-        $ipInfo = Cache::remember($subnet, 10080, function() use ($url)
+        $ipInfo = Cache::remember($subnet, 10080, function() use ($me, $url)
         {
-            return $this->fetchInfo($url);
+            return $me->fetchInfo($url);
         });
 
         return $ipInfo;
@@ -73,7 +75,7 @@ class LarageoPlugin {
      * @throws \Exception
      * @return mixed
      */
-    protected function fetchInfo($url) {
+    public function fetchInfo($url) {
         $response = null;
 
         if (function_exists('curl_init')) {
@@ -105,5 +107,3 @@ class LarageoPlugin {
         return $response;
     }
 }
-
-
