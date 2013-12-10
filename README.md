@@ -10,7 +10,7 @@ A Laravel package that uses [geoPlugin](http://www.geoplugin.com/webservices/jso
 Install this package through Composer. To your composer.json file, add:
 
 ```js
-    "unnutz/larageo-plugin": "dev-master"
+    "fuhrmann/larageo-plugin": "dev-master"
 ```
 
 Next, run the Composer update comand
