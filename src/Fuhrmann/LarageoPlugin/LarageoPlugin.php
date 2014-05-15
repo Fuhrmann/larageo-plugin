@@ -99,9 +99,9 @@ class LarageoPlugin {
             throw new \Exception("Ops! The data is empty! Is " . $url . ' acessible?');
         }
 
-        if($response->geoplugin_status != 200)
+        if($response->geoplugin_status == 404)
         {
-            throw new \Exception("Ops! Your request returned a " . $response->geoplugin_status . " error! Is " . $url . ' acessible?');
+            throw new \Exception("Ops! Your request returned a 404 error! Is " . $url . ' acessible?');
         }
 
         return $response;
