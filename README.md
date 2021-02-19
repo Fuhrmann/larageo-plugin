@@ -22,19 +22,19 @@ Next, run the Composer update comand
 Add the service provider to app/config/app.php, within the providers array.
 
 ```php
-    'providers' => array(
+    'providers' => [
         // ...
         'Fuhrmann\LarageoPlugin\ServiceProvider',
-    ),
+    ],
 ```
 
 In the same file `config/app.php` add the alias:
 
 ```php
-    'aliases' => array(
+    'aliases' => [
         //...
         'LarageoPlugin'   => 'Fuhrmann\LarageoPlugin\Facade',
-    ),
+    ],
 ```
 
 ### Usage
@@ -42,14 +42,14 @@ In the same file `config/app.php` add the alias:
 You can specify an IP:
 
 ```php
-    $info = LarageoPlugin::getInfo('177.34.13.248'); // get info from a IP
+    $info = LarageoPlugin->getInfo('177.34.13.248'); // get info from a IP
     var_dump($info);
 ```
 
 Or use it without any param:
 
 ```php
-    $info = LarageoPlugin::getInfo(); // get info from the IP of the user acessing the page
+    $info = LarageoPlugin->getInfo(); // get info from the IP of the user acessing the page
     var_dump($info);
 ```
 
@@ -80,7 +80,7 @@ This is the output:
 Another useful example: You can also just return one field, e.g. city from in one call:
 
 ```php
-    $userCity = LarageoPlugin::getInfo()->geoplugin_city; // get the city from the user IP
+    $userCity = LarageoPlugin->getInfo()->geoplugin_city; // get the city from the user IP
     var_dump($userCity);
 ```
 
